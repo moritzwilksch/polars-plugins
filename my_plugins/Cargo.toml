@@ -9,6 +9,7 @@ name = "my_plugins"
 crate-type = ["cdylib"]
 
 [dependencies]
-polars = "0.33.2"
-pyo3 = "0.19.2"
-pyo3-polars = { git = "https://github.com/pola-rs/pyo3-polars.git", features = ["derive"] }
+polars = {version = "*"}
+pyo3 = { version = "*", features = ["extension-module"] }
+pyo3-polars = {version = "*", features = ["derive"]}
+serde={version = "*", features = ["derive"]}

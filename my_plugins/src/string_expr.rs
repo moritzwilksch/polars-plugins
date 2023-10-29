@@ -5,18 +5,16 @@ use pyo3_polars::derive::polars_expr;
 fn process(inputs: &[Series]) -> PolarsResult<Series> {
     let ca = inputs[0].utf8()?;
 
-    let mut result: Vec<Option<String>> = Vec::new();
+    let mut result: Vec<String> = Vec::new();
 
     for value in ca {
         match value {
             Some(v) => {
-                result.push(Some(v.replace("a", "b")));
+                result.push(v.replace("a", "b"));
             }
-            None => {
-                result.push(None);
-            }
+            None => {}
         }
     }
 
-    Ok(Series::new(ca.name(), result))
+    Ok(result.into_iter().collect())
 }

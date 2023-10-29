@@ -629,6 +629,7 @@ dependencies = [
  "polars",
  "pyo3",
  "pyo3-polars",
+ "serde",
 ]
 
 [[package]]
@@ -1041,7 +1042,8 @@ dependencies = [
 [[package]]
 name = "pyo3-polars"
 version = "0.7.0"
-source = "git+https://github.com/pola-rs/pyo3-polars.git#f84281e536a38a74af2ea8ee2204bf7a2c44e4e8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "16058b57fcddb38934c573e4c7460c221bbb33b7bdb876f4cc6a25bb9b6cb153"
 dependencies = [
  "polars",
  "polars-core",
@@ -1055,7 +1057,8 @@ dependencies = [
 [[package]]
 name = "pyo3-polars-derive"
 version = "0.1.0"
-source = "git+https://github.com/pola-rs/pyo3-polars.git#f84281e536a38a74af2ea8ee2204bf7a2c44e4e8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "61d4d3c84f4d544752d800f996e4311554f1076ff4e7e67f5908616cf91b3e42"
 dependencies = [
  "polars-core",
  "polars-ffi",

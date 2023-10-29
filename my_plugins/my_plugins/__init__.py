@@ -1,14 +1,13 @@
-from pathlib import Path
 import polars as pl
-from polars.type_aliases import IntoExpr
 from polars.utils.udfs import _get_shared_lib_location
 
+# print(str(list(Path(__file__).parent.glob("*.so"))))
 # print(__file__)
-lib_path = list(Path(__file__).parent.parent.glob("target/*/*/*.so"))
-lib = str(lib_path[0])
+# lib_path = list(Path(__file__).parent.parent.glob("target/*/*/*.so"))
+# lib = str(lib_path[0])
 # print(lib_path)
-# lib = _get_shared_lib_location(__file__)
-
+lib = _get_shared_lib_location(__file__)
+print("Lib:", lib)
 
 
 @pl.api.register_expr_namespace("stringstuff")
@@ -22,6 +21,7 @@ class Stringstuff:
             symbol="process",
             is_elementwise=True,
         )
+
 
 data = pl.DataFrame({"a": ["foo", "bar", "ham"], "b": [1, 2, 3]})
 print(data.select(pl.col("a").stringstuff.process()))
